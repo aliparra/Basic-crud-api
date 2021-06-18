@@ -17,7 +17,7 @@ module.exports.getAll = (req, res, next) => {
 }
 
 module.exports.getUser = (req, res, next) => {
-    User.findById(req.body.id)
+    User.findById(req.params.id)
       .then(user => {
         if (!user) {
           next(createError(404))
@@ -25,6 +25,7 @@ module.exports.getUser = (req, res, next) => {
           res.json(user)
         }
       })
+      .catch(next)
 }
 
 module.exports.update = (req, res, next) => {
@@ -39,6 +40,7 @@ module.exports.update = (req, res, next) => {
           res.json(user)
         }
       })
+      .catch(next)
 }
 
 module.exports.delete = (req, res, next) => {
@@ -50,4 +52,5 @@ module.exports.delete = (req, res, next) => {
           res.json(user)
         }
       })
+      .catch(next)
 }

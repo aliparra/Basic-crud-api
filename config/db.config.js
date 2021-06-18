@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
+const process = require('process')
 
-const DB_REMOTE =  'mongodb://localhost:27017/basic-crud'
 
 mongoose
-  .connect(DB_REMOTE, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false })
+  .connect(process.env.DB_REMOTE, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true, useFindAndModify: false })
   .then(() => console.info(`Successfully connected to the database basic-crud`))
   .catch((error) => {
     console.error(`An error ocurred trying to connect to de database basic-crud`, error)

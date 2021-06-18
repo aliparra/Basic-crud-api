@@ -1,12 +1,14 @@
 require('dotenv').config();
 
 const express = require('express')
+var cors = require('cors')
 const mongoose = require('mongoose');
 const createError = require('http-errors');
 
 require('./config/db.config')
 
 const app = express()
+app.use(cors())
 
 //Middlewares
 
